@@ -6,6 +6,7 @@ import me.lv.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,4 +22,12 @@ public class OrderServiceImpl implements OrderService{
     public List<Order> listOrders() {
         return orderDao.listOrders();
     }
+
+    @Override
+    public Integer insertOrder(Order order) {
+        order.setCreateTime(new Date());
+        order.setUpdateTime(new Date());
+        return orderDao.insertOrder(order);
+    }
+
 }

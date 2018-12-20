@@ -10,9 +10,17 @@ import java.util.List;
 public interface OrderService {
 
     /**
-     * 获取全部
+     * list
      *
      * @return
      */
     List<Order> listOrders();
+
+    /**
+     * insert
+     *
+     * @param order
+     * @return
+     */
+    Integer insertOrder(Order order);
 }

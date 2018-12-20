@@ -1,13 +1,11 @@
 package me.lv.controller;
 
 import me.lv.dto.JsonResponse;
+import me.lv.entity.Order;
 import me.lv.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author lv
@@ -19,11 +17,14 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @GetMapping("getOrder")
-    @ResponseBody
-    public JsonResponse getOrder() {
-        JsonResponse json = new JsonResponse();
-        json.setResults(orderService.listOrders());
-        return json;
+    @GetMapping("listOrders")
+    public JsonResponse listOrders() {
+        return JsonResponse.success(orderService.listOrders());
+    }
+
+    @PostMapping("order")
+    public JsonResponse order(@RequestBody Order order) {
+        orderService.insertOrder(order);
+        return JsonResponse.success();
     }
 }

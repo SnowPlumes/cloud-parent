@@ -1,5 +1,7 @@
 package me.lv.dto;
 
+import me.lv.constant.ResponseStatus;
+
 /**
  * @author lv
  */
@@ -34,6 +36,17 @@ public class JsonResponse {
 
     public void setResults(Object results) {
         this.results = results;
+    }
+
+    public static JsonResponse success(Object result) {
+        JsonResponse json = new JsonResponse();
+        json.setCode(ResponseStatus.SUCCESS);
+        json.setResults(result);
+        return json;
+    }
+
+    public static JsonResponse success() {
+        return success(null);
     }
 
     @Override

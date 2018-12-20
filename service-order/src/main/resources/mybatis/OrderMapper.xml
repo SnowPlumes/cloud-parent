@@ -19,4 +19,45 @@
         <include refid="base_column" />
         from busi_order
     </select>
+
+    <insert id="insertOrder" parameterType="me.lv.entity.Order">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO busi_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="orderNumber != null">
+                order_number,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId, jdbcType=INTEGER},
+            </if>
+            <if test="orderNumber != null">
+                #{orderNumber, jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status, jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime, jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime, jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
 </mapper>
