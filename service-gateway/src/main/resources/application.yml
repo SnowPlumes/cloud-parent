@@ -1,8 +1,29 @@
 server:
   port: 9999
+#spring:
+#  profiles:
+#    active: after-route
 spring:
-  profiles:
-    active: after-route
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lower-case-service-id: true
+      routes:
+      - id: service-hi
+        uri: lb://SERVICE-HI
+        predicates:
+          - Path=/test/**
+        filters:
+          - StripPrefix=1
+  application:
+    name: service-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+
 
 ---
 spring:

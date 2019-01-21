@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 /**
  * @author lv
  */
-public class RequestTimeFilter implements GatewayFilter, Ordered{
+public class RequestTimeFilter implements GatewayFilter, Ordered {
 
     private static final Logger logger = LoggerFactory.getLogger(RequestTimeFilter.class);
     private static final String REQUEST_TIME_BEGIN = "requestTimeBegin";
