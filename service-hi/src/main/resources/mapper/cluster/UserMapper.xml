@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="me.lv.dao.cluster.UserDao">
+    <resultMap id="resultMap" type="me.lv.entity.UserDO">
+        <id column="id" property="id" javaType="Integer" />
+        <result column="name" property="name" javaType="String" />
+        <result column="age" property="age" javaType="Integer" />
+        <result column="status" property="status" javaType="Integer" />
+        <result column="create_time" property="createTime" javaType="Date" />
+        <result column="update_time" property="updateTime" javaType="Date" />
+    </resultMap>
+
+    <sql id="base_column_list">
+        id, name, age, status, create_time, update_time
+    </sql>
+
+    <select id="getUserById" resultMap="resultMap" parameterType="Integer">
+        select
+        <include refid="base_column_list" />
+        from user
+        where id = #{id}
+    </select>
+
+</mapper>

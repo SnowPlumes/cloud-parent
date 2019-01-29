@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="me.lv.dao.master.UserRoleDao">
+    <resultMap id="resultMap" type="me.lv.entity.UserRoleDO">
+        <id column="id" property="id" javaType="Integer" />
+        <result column="parent_id" property="parentId" javaType="Integer" />
+        <result column="role_name" property="roleName" javaType="String" />
+        <result column="des" property="des" javaType="String" />
+    </resultMap>
+
+    <sql id="base_column_list" >
+        id, parent_id, role_name, des
+    </sql>
+
+    <select id="getUserRoleById" resultMap="resultMap" parameterType="Integer">
+        select
+        <include refid="base_column_list" />
+        from user_role
+        where id = #{id}
+    </select>
+    
+</mapper>
