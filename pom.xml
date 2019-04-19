@@ -12,8 +12,9 @@
         <module>eureka-server</module>
         <module>service-order</module>
         <module>common-entity</module>
-        <module>common-config</module>
+        <module>cloud-config</module>
         <module>common</module>
+        <module>cloud-common</module>
     </modules>
 
     <parent>

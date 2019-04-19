@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common-config</artifactId>
+    <artifactId>cloud-config</artifactId>
 
     <!--配置资源配置文件有哪些？-->
     <profiles>
