@@ -11,6 +11,7 @@
 
     <artifactId>cloud-provider</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>provider-user</module>
     </modules>
@@ -19,6 +20,14 @@
         <dependency>
             <groupId>me.lv</groupId>
             <artifactId>common-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>me.lv</groupId>
+            <artifactId>cloud-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>me.lv</groupId>
+            <artifactId>common-config</artifactId>
         </dependency>
     </dependencies>
 
