@@ -10,10 +10,10 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>eureka-server</module>
-        <module>service-order</module>
-        <module>common-entity</module>
         <module>cloud-config</module>
         <module>cloud-common</module>
+        <module>cloud-provider</module>
+        <module>cloud-generator</module>
     </modules>
 
     <parent>
@@ -28,6 +28,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <me-cloud.version>1.0-SNAPSHOT</me-cloud.version>
     </properties>
 
     <dependencyManagement>
@@ -87,6 +88,30 @@
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml</artifactId>
                 <version>3.9</version>
+            </dependency>
+
+            <!-- generator -->
+            <dependency>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-core</artifactId>
+                <version>1.3.5</version>
+            </dependency>
+
+            <!-- me-cloud -->
+            <dependency>
+                <groupId>me.lv</groupId>
+                <artifactId>common-model</artifactId>
+                <version>${me-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.lv</groupId>
+                <artifactId>cloud-config</artifactId>
+                <version>${me-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.lv</groupId>
+                <artifactId>common-config</artifactId>
+                <version>${me-cloud.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -65,7 +65,7 @@ public class ExcelUtil {
     }
 
     public static void importExcel(File file) throws IOException{
-        if(checkExcelVaild(file)) {
+        if(checkExcelValid(file)) {
             return;
         }
         //装载流
@@ -252,7 +252,7 @@ public class ExcelUtil {
      * 判断文件是否是excel
      * @throws Exception
      */
-    private static boolean checkExcelVaild(File file) {
+    private static boolean checkExcelValid(File file) {
         if(!file.exists()){
             return true;
         }
@@ -308,27 +308,5 @@ public class ExcelUtil {
         }
         return value;
     }
-
-    /**
-     * MultipartFile 转换成File
-     *
-     * @param multfile 原文件类型
-     * @return File
-     * @throws IOException
-     */
-    /*public static File multipartToFile(MultipartFile multfile) throws IOException {
-        CommonsMultipartFile cf = (CommonsMultipartFile) multfile;
-        //这个myfile是MultipartFile的
-        DiskFileItem fi = (DiskFileItem) cf.getFileItem();
-        File file = fi.getStoreLocation();
-        //手动创建临时文件
-        if (file.length() < MIN_FILE_SIZE) {
-            File tmpFile = new File(System.getProperty("java.io.tmpdir") + System.getProperty("file.separator") +
-                    file.getName());
-            multfile.transferTo(tmpFile);
-            return tmpFile;
-        }
-        return file;
-    }*/
 
 }
