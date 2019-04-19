@@ -10,6 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloud-common</artifactId>
-
+    <packaging>pom</packaging>
+    <modules>
+        <module>common-config</module>
+    </modules>
 
 </project>

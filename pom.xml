@@ -13,7 +13,6 @@
         <module>service-order</module>
         <module>common-entity</module>
         <module>cloud-config</module>
-        <module>common</module>
         <module>cloud-common</module>
     </modules>
 
