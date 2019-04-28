@@ -1,0 +1,10 @@
+server:
+  port: 8880
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: neo_route
+        uri: http://localhost:8088/customer/getUser
+        predicates:
+        - Path=/gateway/**

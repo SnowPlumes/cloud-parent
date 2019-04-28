@@ -16,6 +16,7 @@
         <module>cloud-generator</module>
         <module>cloud-provider-service</module>
         <module>cloud-customer</module>
+        <module>cloud-gateway</module>
     </modules>
 
     <parent>
