@@ -1,17 +1,15 @@
 package me.lv.provider.service;
 
 import me.lv.JsonResponse;
+import me.lv.provider.service.hystrix.UserApiHystrix;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author lv
  */
-@FeignClient(value = "provider-user")
-@RequestMapping(value = "user", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@FeignClient(value = "provider-user", fallback = UserApiHystrix.class)
 public interface UserApi {
 
     /**
@@ -20,6 +18,6 @@ public interface UserApi {
      * @param userId 用户id
      * @return 用户信息
      */
-    @GetMapping("getUser")
+    @GetMapping("/user/getUser")
     JsonResponse getUser(@RequestParam("userId")Integer userId);
 }

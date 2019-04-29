@@ -24,7 +24,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
         <dependency>
             <groupId>me.lv</groupId>
             <artifactId>common-model</artifactId>
